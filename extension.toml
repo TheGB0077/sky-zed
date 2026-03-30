@@ -1,0 +1,16 @@
+id = "sky"
+name = "Sky"
+version = "0.1.0"
+schema_version = 1
+authors = ["Gabriel Lima"]
+description = "Sky language support for Zed"
+repository = "https://github.com/TheGB0077/sky-zed"
+snippets = ["./snippets/sky.json"]
+
+[language_servers.sky-lsp]
+name = "Sky LSP"
+languages = ["Sky"]
+
+[grammars.sky]
+repository = "https://github.com/anzellai/tree-sitter-sky"
+rev = "15209fbff9675d618f6e89ed1a58944d053ba82e"

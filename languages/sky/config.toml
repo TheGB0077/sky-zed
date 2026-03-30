@@ -1,0 +1,16 @@
+name = "Sky"
+grammar = "sky"
+path_suffixes = ["sky", "skyi"]
+language_servers = ["sky-lsp"]
+line_comments = ["-- "]
+block_comment = ["{- ", " -}"]
+tab_size = 4
+hard_tabs = false
+word_characters = ["_"]
+
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string"] },
+]

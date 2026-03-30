@@ -1,0 +1,14 @@
+{
+	"module": {
+		"prefix": "module",
+		"body": ["module ${1:ModuleName} exposing (${2:..})", "$0"]
+	},
+	"import": {
+		"prefix": "import",
+		"body": ["import ${1:ModuleName}${2: exposing (${3:..})}", "$0"]
+	},
+	"union": {
+		"prefix": "type",
+		"body": ["type ${1:TypeName}", "    = ${2:Variant}", "    | $0"]
+	}
+}
