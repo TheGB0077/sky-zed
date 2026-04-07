@@ -61,8 +61,32 @@ cargo build --release --target wasm32-wasip1
 # Copy the extension WASM
 cp target/wasm32-wasip1/release/sky.wasm sky.wasm
 
+# Update extension.toml to reference the compiled files
+cat > extension.toml << 'EOF'
+id = "sky"
+name = "Sky"
+version = "0.1.0"
+schema_version = 1
+authors = ["Gabriel Lima"]
+description = "Sky language support for Zed"
+repository = "https://github.com/TheGB0077/sky-zed"
+languages = ["languages/sky"]
+snippets = ["snippets/sky.json"]
+
+[lib]
+path = "sky.wasm"
+
+[grammars.sky]
+repository = "https://github.com/anzellai/tree-sitter-sky"
+rev = "15209fbff9675d618f6e89ed1a58944d053ba82e"
+
+[language_servers.sky-lsp]
+name = "Sky LSP"
+languages = ["Sky"]
+EOF
+
 # Clean up build artifacts
-rm -rf target src Cargo.toml Cargo.lock
+rm -rf target src Cargo.toml Cargo.lock .gitignore
 ```
 
 #### Install to Zed
@@ -76,29 +100,24 @@ cp -r . ~/Library/Application\ Support/Zed/extensions/installed/sky
 **Linux:**
 ```bash
 # Copy to Zed extensions directory
-cp -r ~/.local/share/zed/extensions/installed/sky
+mkdir -p ~/.local/share/zed/extensions/installed
+cp -r . ~/.local/share/zed/extensions/installed/sky
 ```
 
 Then restart Zed or run `Reload Window` from the Command Palette.
 
 ### Option 2: Development Mode
 
-To develop or modify the extension:
+To develop or modify the extension, follow the same build steps as Option 1, but copy to the dev extensions directory:
 
 ```bash
-# Clone the repository
-git clone https://github.com/TheGB0077/sky-zed.git
-cd sky-zed
-
-# Build the grammar (see Option 1 above)
-# ...
-
-# Copy to Zed dev extensions
+# Clone and build (see Option 1 above)
+# Then copy to Zed dev extensions
 mkdir -p ~/.config/zed/extensions
 cp -r . ~/.config/zed/extensions/sky
 ```
 
-Then restart Zed and enable "Developer Mode" in extensions settings.
+This keeps the source files and Cargo.toml for easier rebuilding during development.
 
 ## Configuration
 
