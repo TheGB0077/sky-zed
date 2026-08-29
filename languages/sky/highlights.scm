@@ -1,6 +1,5 @@
 ; highlights.scm — Tree-sitter highlighting queries for Sky
 ; Compatible with Helix, Neovim, and other tree-sitter-aware editors.
-
 ; ── Keywords ────────────────────────────────────────────
 [
   "module"
@@ -26,7 +25,6 @@
   "-"
   "*"
   "/"
-  "//"
   "%"
   "++"
   "::"
@@ -49,11 +47,26 @@
 ] @operator
 
 ; ── Punctuation ─────────────────────────────────────────
-["(" ")"] @punctuation.bracket
-["{" "}"] @punctuation.bracket
-["[" "]"] @punctuation.bracket
+[
+  "("
+  ")"
+] @punctuation.bracket
 
-["," "." ":"] @punctuation.delimiter
+[
+  "{"
+  "}"
+] @punctuation.bracket
+
+[
+  "["
+  "]"
+] @punctuation.bracket
+
+[
+  ","
+  "."
+  ":"
+] @punctuation.delimiter
 
 "\\" @punctuation.special
 
@@ -102,6 +115,9 @@
 (function_declaration
   name: (lower_identifier) @function)
 
+(function_declaration
+  name: (upper_identifier) @function)
+
 ; ── Patterns ────────────────────────────────────────────
 (variable_pattern
   (lower_identifier) @variable)
@@ -141,9 +157,15 @@
 
 ; ── Literals ────────────────────────────────────────────
 (integer) @constant.numeric.integer
+
 (float) @constant.numeric.float
+
 (string) @string
+
+(multiline_string) @string
+
 (char) @constant.character
+
 (escape_sequence) @constant.character.escape
 
 (unit_expression) @constant.builtin
@@ -156,10 +178,13 @@
 ; ── Exposed items ───────────────────────────────────────
 (exposed_value
   (lower_identifier) @function)
+
 (exposed_type
   (upper_identifier) @type)
+
 (double_dot) @punctuation.special
 
 ; ── Comments ────────────────────────────────────────────
 (line_comment) @comment.line
+
 (block_comment) @comment.block
