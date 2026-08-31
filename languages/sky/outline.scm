@@ -6,6 +6,9 @@
 (function_declaration
   name: (lower_identifier) @name) @item
 
+(function_declaration
+  name: (upper_identifier) @name) @item
+
 (type_declaration
   name: (upper_identifier) @name) @item
 

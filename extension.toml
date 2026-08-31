@@ -1,6 +1,6 @@
 id = "sky"
 name = "Sky"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["Gabriel Lima"]
 description = "Sky language support for Zed"
@@ -13,4 +13,4 @@ languages = ["Sky"]
 
 [grammars.sky]
 repository = "https://github.com/anzellai/tree-sitter-sky"
-rev = "15209fbff9675d618f6e89ed1a58944d053ba82e"
+rev = "dbe7d4211ee34711fa001e7d5275aa1ce365002d"

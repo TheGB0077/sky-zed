@@ -1,6 +1,9 @@
 ; overrides.scm — Syntax scope overrides for Sky
 
-(string) @string.inclusive
+[
+  (string)
+  (multiline_string)
+] @string.inclusive
 
 [
   (line_comment)

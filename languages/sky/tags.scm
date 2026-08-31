@@ -1,7 +1,9 @@
 ; tags.scm — Symbol tagging for navigation (go-to-definition, etc.)
+(function_declaration
+  name: (lower_identifier) @name) @definition.function
 
 (function_declaration
-  (lower_identifier) @name) @definition.function
+  name: (upper_identifier) @name) @definition.function
 
 (type_declaration
   (upper_identifier) @name) @definition.type
