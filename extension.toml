@@ -4,7 +4,7 @@ version = "0.1.1"
 schema_version = 1
 authors = ["Gabriel Lima"]
 description = "Sky language support for Zed"
-repository = "https://github.com/clojj/sky-zed"
+repository = "https://github.com/TheGB0077/sky-zed"
 snippets = ["./snippets/sky.json"]
 
 [language_servers.sky-lsp]
