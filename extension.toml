@@ -1,6 +1,6 @@
 id = "sky"
 name = "Sky"
-version = "0.1.1"
+version = "0.1.2"
 schema_version = 1
 authors = ["Gabriel Lima"]
 description = "Sky language support for Zed"
